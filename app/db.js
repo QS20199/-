@@ -1,7 +1,7 @@
-// @usage: mod.update({title: 'world'}, {a:});
+// @usage: mod.update({title: 'world'}, {a:1});
 
 var MongoClient = require('mongodb').MongoClient;
-var serverConfig = require('./serverConfig.js');
+var serverConfig = require('../config/serverConfig.js');
 var assert = require("assert");
 var mod = {};
 mod.update = (selector, data) => {
@@ -60,3 +60,5 @@ mod.update = (selector, data) => {
 	});
 }
 exports.update = mod.update;
+
+mod.update({title: 'world'}, {a:1});
