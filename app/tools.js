@@ -25,7 +25,6 @@ module.exports = {
 				destObj[key] = module.exports.objFilter(srcObj[key], filter[key]);
 			}
 		}
-
 		return destObj;
 	}
 }

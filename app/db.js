@@ -4,6 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var serverConfig = require('../config/serverConfig.js');
 var assert = require("assert");
 var mod = {};
+
 mod.update = (selector, data) => {
 	MongoClient.connect(serverConfig.mongoUrl + serverConfig.dbName, (err, db) => {
 		assert.equal(null, err);
@@ -60,5 +61,3 @@ mod.update = (selector, data) => {
 	});
 }
 exports.update = mod.update;
-
-mod.update({title: 'world'}, {a:1});
