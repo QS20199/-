@@ -19,8 +19,7 @@ exports.start = (interval) => {
 				result += chunk;
 			});
 			res.on('end', () => {
-				result = JSON.parse(result);
-				// result = config.resultFilter(JSON.parse(result));
+				result = config.resultFilter && config.resultFilter(result) || result;
 				result['_name_'] = config.name;
 				myDb.update(config.selector, result);
 			})
@@ -36,3 +35,5 @@ exports.start = (interval) => {
 }
 
 exports.start();
+
+setTimeout(function(){console.log(23123123)},2000)

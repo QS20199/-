@@ -17,8 +17,8 @@ module.exports = [{
 	query: {
 		'page': 1
 	}, 
-	resultFilter: (obj) => {
-		var result = {};
-		
+	resultFilter: (src) => {
+		var result = JSON.parse(src);
+		return result;
 	}
 }]
