@@ -1,5 +1,6 @@
 // @usage: mod.update({title: 'world'}, {a:1});
-// @usage: mod.find()
+// @usage: mod.find({}, 'jingDongQuan', (results) => {console.log(results)})
+
 var MongoClient = require('mongodb').MongoClient;
 var dbConfig = require('../config/serverConfig.js').mongodb;
 var assert = require("assert");
@@ -72,4 +73,3 @@ mod.find = (query, collectionName, callback) => {
 		})
 	});
 }
-mod.find({}, 'jingDongQuan', (results) => {console.log(results)})
