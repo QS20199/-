@@ -20,8 +20,10 @@ exports.start = (interval) => {
 			});
 			res.on('end', () => {
 				result = config.resultFilter && config.resultFilter(result) || result;
-				result['_name_'] = config.name;
-				myDb.update(config.selector, result);
+				if (typeof result == "string") {
+					result = {data: result};
+				}
+				myDb.update(config.selector, config.collectionName, result);
 			})
 		});
 

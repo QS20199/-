@@ -5,11 +5,11 @@ var serverConfig = require('../config/serverConfig.js');
 var assert = require("assert");
 var mod = {};
 
-mod.update = (selector, data) => {
+mod.update = (selector, collectionName, data) => {
 	MongoClient.connect(serverConfig.mongoUrl + serverConfig.dbName, (err, db) => {
 		assert.equal(null, err);
 
-		db.createCollection(serverConfig.collectionName, {
+		db.createCollection(collectionName, {
 			safe: true
 		}, (err, collection) => {
 			assert.equal(null, err);

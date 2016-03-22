@@ -1,5 +1,5 @@
 module.exports = [{
-	name: 'jingDongQuan',
+	collectionName: 'jingDongQuan',
 	selector: {
 		'_name_': 'jingDongQuan'
 	},
@@ -18,7 +18,6 @@ module.exports = [{
 		'page': 1
 	}, 
 	resultFilter: (src) => {
-		var result = JSON.parse(src);
-		return result;
+		return JSON.parse(src);
 	}
 }]
