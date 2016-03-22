@@ -26,8 +26,6 @@ exports.start = (opt) => {
 							data: result
 						};
 					}
-					console.log("crawler.js: db updating");
-					debugger;
 					myDb.update(config.selector, config.collectionName, result);
 					console.log("crawler.js: db updated");
 				})

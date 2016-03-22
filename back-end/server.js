@@ -11,9 +11,12 @@ mod.start = () => {
 	http.createServer(function(req, res) {
 		db.find({}, "jingDongQuan", (results) => {
 			res.writeHead(200, {
-				'Content-Type': 'application/json; charset=utf-8'
+				'Content-Type': 'application/json; charset=utf-8',
+				'Access-Control-Allow-Origin': '*',
+				
 			});
 			res.end(JSON.stringify(results));
+			console.log("HTTP:200");
 		})
 	}).listen(nodeConfig.port, nodeConfig.hostname);
 	console.log("Server is listening on " + nodeConfig.hostname + ":" + nodeConfig.port);
