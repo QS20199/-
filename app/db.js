@@ -1,9 +1,10 @@
 // @usage: mod.update({title: 'world'}, {a:1});
-
+// @usage: mod.find()
 var MongoClient = require('mongodb').MongoClient;
 var dbConfig = require('../config/serverConfig.js').mongodb;
 var assert = require("assert");
 var mod = {};
+module.exports = mod;
 
 mod.update = (selector, collectionName, data) => {
 	MongoClient.connect(dbConfig.mongoUrl + dbConfig.dbName, (err, db) => {
@@ -60,6 +61,15 @@ mod.update = (selector, collectionName, data) => {
 		// }); 
 	});
 }
+mod.find = (query, collectionName, callback) => {
+	MongoClient.connect(dbConfig.mongoUrl + dbConfig.dbName, (err, db) => {
+		if (err) return
+		assert.equal(null, err);
+		var collection = db.collection(collectionName);
 
-
-module.exports = mod;
+		collection.find(query).toArray().then((docs) => {
+			callback(docs);
+		})
+	});
+}
+mod.find({}, 'jingDongQuan', (results) => {console.log(results)})
