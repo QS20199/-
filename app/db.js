@@ -1,12 +1,12 @@
 // @usage: mod.update({title: 'world'}, {a:1});
 
 var MongoClient = require('mongodb').MongoClient;
-var serverConfig = require('../config/serverConfig.js');
+var dbConfig = require('../config/serverConfig.js').mongodb;
 var assert = require("assert");
 var mod = {};
 
 mod.update = (selector, collectionName, data) => {
-	MongoClient.connect(serverConfig.mongoUrl + serverConfig.dbName, (err, db) => {
+	MongoClient.connect(dbConfig.mongoUrl + dbConfig.dbName, (err, db) => {
 		assert.equal(null, err);
 
 		db.createCollection(collectionName, {
@@ -60,4 +60,6 @@ mod.update = (selector, collectionName, data) => {
 		// }); 
 	});
 }
-exports.update = mod.update;
+
+
+module.exports = mod;

@@ -5,7 +5,9 @@ var myDb = require('./db.js');
 // var tools = require('./tools.js');
 
 
-exports.start = (interval) => {
+exports.start = (options) => {
+	//todo: setInterval
+
 	crawlConfig.forEach((config, index) => {
 		var postData = querystring.stringify(config.query) || "";
 		var options = config.options;
@@ -37,5 +39,3 @@ exports.start = (interval) => {
 }
 
 exports.start();
-
-setTimeout(function(){console.log(23123123)},2000)
