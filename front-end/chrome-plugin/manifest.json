@@ -1,0 +1,16 @@
+{
+	"name": "Coupon Notification",
+	"version": "0.9.0",
+	"manifest_version": 2,
+	"description": "Notify you when new coupon appears",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "Coupon Notification",
+		"default_popup": "popup.html"
+	},
+	"permissions": ["background", "notifications"],
+	"background": {
+		// "persistent": false,
+		"scripts": ["background.js"]
+	}
+}
