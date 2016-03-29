@@ -64,7 +64,6 @@ mod.update = (selector, collectionName, data) => {
 }
 mod.find = (query, collectionName, callback) => {
 	MongoClient.connect(dbConfig.mongoUrl + dbConfig.dbName, (err, db) => {
-		if (err) return
 		assert.equal(null, err);
 		var collection = db.collection(collectionName);
 
