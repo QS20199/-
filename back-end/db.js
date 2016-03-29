@@ -33,6 +33,7 @@ mod.update = (selector, collectionName, data) => {
 
 			collection.find().toArray((err, docs) => {
 				console.log(docs);
+				db.close();
 			});
 
 			//    删除数据
@@ -69,6 +70,8 @@ mod.find = (query, collectionName, callback) => {
 
 		collection.find(query).toArray().then((docs) => {
 			callback(docs);
+			db.close();
 		})
+
 	});
 }
