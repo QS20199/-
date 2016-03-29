@@ -5,12 +5,10 @@
 	"description": "Notify you when new coupon appears",
 	"browser_action": {
 		"default_icon": "icon.png",
-		"default_title": "Coupon Notification",
-		"default_popup": "popup.html"
+		"default_title": "Coupon Notification"
 	},
 	"permissions": ["background", "notifications"],
 	"background": {
-		// "persistent": false,
 		"scripts": ["background.js"]
 	}
 }
