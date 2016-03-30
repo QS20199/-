@@ -1,6 +1,6 @@
 module.exports = {
 	mongodb: {
-		mongoUrl: 'mongodb://mongo-app:27017/',
+		mongoUrl: 'mongodb://mongo_app:27017/',
 		dbName: 'coupon',
 	},
 	node: {
